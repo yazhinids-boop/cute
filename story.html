@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Our Story – A Journey</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Georgia', serif;
+  background: linear-gradient(135deg, #fef6f9, #e3f6f5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.book-container {
+  background: #ffffffea;
+  padding: 50px 60px;
+  border-radius: 20px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+  max-width: 760px;
+  width: 90%;
+  z-index: 2;
+  position: relative;
+  text-align: left;
+  backdrop-filter: blur(8px);
+  border: 1px solid #f3dede;
+}
+
+.chapter-title {
+  font-size: 2.5rem;
+  color: #d36c6c;
+  margin-bottom: 1rem;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #f6d5d5;
+  font-weight: bold;
+}
+
+.chapter-content {
+  font-size: 1.1rem;
+  color: #4b3f3f;
+  line-height: 1.9;
+  white-space: pre-line;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: #f4caca #fff;
+}
+
+.chapter-content::-webkit-scrollbar {
+  width: 6px;
+}
+.chapter-content::-webkit-scrollbar-thumb {
+  background-color: #f4caca;
+  border-radius: 3px;
+}
+
+.next-btn {
+  margin-top: 2rem;
+  padding: 12px 34px;
+  font-size: 1.05rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #ffb6b9, #fae3d9);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(255, 182, 185, 0.4);
+  transition: all 0.3s ease;
+  color: #fff;
+}
+
+.next-btn:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.next-btn:disabled {
+  background: #ddd;
+  color: #999;
+  cursor: default;
+}
+
+.image-frame {
+  position: absolute;
+  width: 120px;
+  height: 150px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transform: rotate(-6deg);
+  overflow: hidden;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.image-frame:hover {
+  transform: rotate(-6deg) scale(1.05);
+}
+
+.image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.img-left {
+  top: 15%;
+  left: 4%;
+}
+
+.img-right {
+  top: 65%;
+  right: 4%;
+  transform: rotate(5deg);
+}
+  </style>
+</head>
+<body>
+
+  <!-- Floating Anime-style Polaroids -->
+  <div class="image-frame img-left">
+    <img src="one.jpg" alt="Anime Couple Left" />
+  </div>
+  <div class="image-frame img-right">
+    <img src="eleven.jpg" alt="Anime Couple Right" />
+  </div>
+
+  <div class="book-container" id="book">
+    <div class="chapter-title" id="chapter-title">Chapter 1: The Snapchat Twist</div>
+    <div class="chapter-content" id="chapter-content">
+It all began with a Snapchat notification. Just a simple friend request. Nothing dramatic—until I opened it. I thought it was one of my schoolmates fooling around, so I played along, asking, “Are you that guy from school?” Turns out, it wasn’t a schoolmate at all. Plot twist—it was a senior from my college whom I had never spoken to in real life!
+
+Our chats started casually—memes, quick “hi-hello,” and random late-night convos. But as the chats got longer and funnier, something shifted. The vibe was easy, genuine, and strangely comforting. In a typical desi girl panic move, I played it safe and called him “anna” (brother). Yep, the fastest way to end any romantic hope. Or so I thought.
+
+But fate clearly had its own script. Despite the accidental sibling-zoning, our bond grew stronger by the day. We talked about college chaos, annoying professors, and our shared love for junk food. It was never forced. There was laughter, a comfort I couldn’t explain, and a weird excitement every time his name popped up on my screen.
+
+Who knew a random social media click could lead to something this beautiful? A snap turned into a spark. A spark slowly lit a fire. But little did I know, this was just the first frame of our filmi love story.
+    </div>
+  <button class="next-btn" onclick="nextChapter()" id="next-btn">Next Chapter ➜</button>
+
+
+  </div>
+
+  <script>
+    const chapters = [
+      {
+        title: "Chapter 1: The Snapchat Twist",
+        content: `
+It all began with a Snapchat notification. Just a simple friend request. Nothing dramatic—until I opened it. I thought it was one of my schoolmates fooling around, so I played along, asking, “Are you that guy from school?” Turns out, it wasn’t a schoolmate at all. Plot twist—it was a senior from my college whom I had never spoken to in real life!
+
+Our chats started casually—memes, quick “hi-hello,” and random late-night convos. But as the chats got longer and funnier, something shifted. The vibe was easy, genuine, and strangely comforting. In a typical desi girl panic move, I played it safe and called him “anna” (brother). Yep, the fastest way to end any romantic hope. Or so I thought.
+
+But fate clearly had its own script. Despite the accidental sibling-zoning, our bond grew stronger by the day. We talked about college chaos, annoying professors, and our shared love for junk food. It was never forced. There was laughter, a comfort I couldn’t explain, and a weird excitement every time his name popped up on my screen.
+
+Who knew a random social media click could lead to something this beautiful? A snap turned into a spark. A spark slowly lit a fire. But little did I know, this was just the first frame of our filmi love story.`
+      },
+      {
+        title: "Chapter 2: From Sibling Tag to Soul Talk",
+        content: `
+So, I had officially friend-zoned and brother-zoned this guy. Solid move, right? Except… it didn’t stick. Because “anna” slowly turned into “hey, did you eat?” and then “why didn’t you message today?” And that’s where things started changing.
+Our conversations weren’t just jokes and memes anymore. We started talking about real stuff—life goals, college pressure, silly childhood memories, fears, and everything in between. He was surprisingly good at listening… and teasing. I’d say something deep, and he’d follow it with a perfectly timed meme. Classic him.
+
+Then came the turning point—I fell sick. Headaches, low energy, and that typical "why-me" mood. Out of everyone, he was the one who constantly checked on me. “Go to the hospital.” “Eat something.”
+
+But here's the twist—our little "hospital mission" turned into a full-blown sitcom episode. He didn’t take me to some fancy clinic or big hospital—nope. He marched me straight to the college dispensary like it was a five-star emergency ward. Picture this: dim lights, a sleepy nurse, and a thermometer that probably hadn't been washed since Y2K. We were trying to act all serious, but honestly, I felt like we were characters in a college medical drama spoof.
+
+Then—bam! Someone saw us. A guy and a girl, alone at the dispensary?  By sunset, the whole story had done laps around his chairperson knew. We were freaking out. I was seconds away from bursting into tears, and he… well, he was trying to act cool like we weren’t two amateurs caught in a campus scandal.
+
+Yet somehow, we managed it. With awkward smiles, nervous laughs, and a pinch of chaotic grace. That day sealed it for me. He wasn’t just someone I liked chatting with—he genuinely cared. And that whole “brother” tag? Yeah, it vanished quietly, making space for something warmer, weirder, and way more real.`
+      },
+      {
+        title: "Chapter 3: Exams, Ice Cream & Papa Panic",
+        content: `
+	Ah, semester exams—the time when stress is high, sleep is low, and your brain starts speaking in equations. In the middle of all that chaos, we decided, “Let’s chill at the mall for a bit.” 
+You know, reward ourselves with ice cream and pretend we’re not failing thermodynamics.
+So, we went. Me, him, a few mutual friends, and a heavenly scoop of chocolate ice cream. For once, everything felt light. We were laughing, talking nonsense, and forgetting the fact that we had an exam the next day. I was halfway through my cone when my phone buzzed. It was my dad.
+
+Now, imagine this: I go pale. He looks at me like, “Did I just get recruited into a crime?” The vibe instantly shifted from rom-com to thriller.
+I awkwardly answered the call, pretending to be in the library. My dad, suspicious as ever, asked for proof. “Send a pic,” he said. I wanted to teleport to Mars. We quickly posed like we were in a group study session—with an ice cream in hand. Genius, right?
+
+After the call, we were still jittery but laughed it off like fools. That small moment of panic somehow turned into a beautiful memory. It felt like the universe was testing us and saying, “If you two can survive this sneak-out moment, maybe you’re meant to be.”
+Looking back, it wasn’t about the mall or the ice cream. It was about feeling completely yourself with someone—even in the middle of a lie. 
+`
+      },
+      {
+        title: "Chapter 4: That Question… That Library",
+        content: `
+Some stories have fireworks, violins, or a romantic sunset. Mine had anxiety, books, and awkward silence. It was one of those intense exam prep days—except I wasn't cramming equations. I was mentally preparing for the question.
+We were sitting in the college library, pretending to study. My heart was pounding like a drummer in a rock band. Suddenly, without planning, I turned to him and blurted out, “What will you be for me?”
+
+He blinked. I blinked. Time froze. Somewhere in the distance, someone dropped a book, probably echoing my internal chaos.
+He didn’t answer immediately. Instead, we had the weirdest deep conversation about love, timing, and emotional maturity—all surrounded by dusty books and whispering students. I wasn’t expecting hearts and violins, but I wasn’t prepared for rejection either.
+Yes, he gently said no. Politely, respectfully… but ouch. I gave a small nod and acted like it was “just a random question.” Inside? My brain was singing breakup songs for a relationship that hadn’t even started.
+
+To make things worse (or better, maybe?), the college librarian started glaring at us. Apparently, broken hearts are also supposed to be quiet.
+But weirdly enough, it didn’t break us. We walked out of that library still laughing about how “philosophical” we sounded. That day didn’t mark the beginning of a love story—but it showed the strength of our bond.
+
+Because sometimes, the greatest love stories start with a “no”… and a very awkward library meet-cute.
+`
+      },
+      {
+        title: "Chapter 5: Movies, Malls, and Friendship Mode",
+        content: `After the “library proposal” rejection, you’d think things would get awkward, right? Nope. Somehow, we switched gears and slid right back into friendship mode like pros. We planned a movie outing with our gang — just casual, no romance labels, no expectations, just popcorn and laughter.
+At the theater, we sat side by side. I tried to act all cool, pretending not to notice when he laughed louder than anyone else or when he offered me some popcorn (which I shamelessly accepted). Inside, I was the classic rom-com heroine, heart doing cartwheels and secretly hoping he’d hold my hand. Spoiler: he didn’t. But hey, subtlety is an art, and I was still learning.
+
+Next up, we ended the day with a spontaneous trip to Saravana Stores — a place filled with colorful chaos, shopping carts, and endless snacks. We wandered around, teasing each other over silly things like which candy was the best and who could find the weirdest item. That random shopping trip turned into one of our happiest moments, filled with genuine smiles and goofy selfies.
+
+We weren’t lovers yet — just good friends who enjoyed each other’s company. But every laugh, every shared look, every playful nudge quietly shifted the story from “just friends” to something deeper.
+Sometimes, love doesn’t need grand declarations. Sometimes, it’s in the everyday moments — like fighting over the last bag of chips at the mall.
+`
+      },
+	{
+        title: "Chapter 6: Marriage Crash and Surprise Meet",
+        content: `Weddings are usually predictable, right? You expect flowers, dance, drama—but nothing prepares you for an unexpected encounter that feels straight out of a movie scene. It was a friend’s marriage, and I wasn’t expecting him to show up at all. Yet, there he was—walking in like a plot twist I didn’t see coming.
+
+No, it wasn’t a bump or an accidental collision. He came without me knowing, just like a surprise guest star in my life’s ongoing rom-com. The moment our eyes met across the crowd, the music seemed to soften, and the chatter faded. Suddenly, everything else was background noise to this stolen glance.
+
+We didn’t dance that night, but I swear the chemistry between us could’ve lit up the entire hall. There was a quiet thrill in knowing he was there—near but not quite close enough. The wedding rituals continued, but I was lost in that moment, wondering if this was the start of something new.
+Later, we laughed about the whole thing—how he just ‘popped up’ unannounced, and how I tried not to look too excited. I mean, who crashes a wedding just to see you? Apparently, someone who’s already got you on their mind.
+
+That night marked a shift—from accidental meetings to deliberate moments. Our story was no longer just about chance encounters; it was about creating memories together, one unexpected surprise at a time.
+`
+      },
+{
+title: "Chapter 7: The Beginning of Love",
+        content: `After that unexpected wedding meet, something quietly changed between us. No grand declarations, no dramatic gestures—just the gentle unfolding of something real. We started spending more time together, going on walks, talking about everything and nothing. Our conversations ranged from silly memes to deep dreams, from favorite movies to fears that only come out at midnight.
+
+It wasn’t a formal “date,” but every moment felt like one. We laughed over shared jokes, teased each other like old friends, and yet there was a new spark in the air—an unspoken acknowledgment that things were shifting. I caught myself looking forward to his messages, smiling like a fool at things he said. He seemed more present, more caring, as if he’d realized this wasn’t just friendship anymore.
+
+One evening, as we sat under a sky full of stars, he reached out and held my hand. Nothing fancy, just a quiet touch that said, “I’m here.” My heart did that embarrassing leap people write about in romantic novels. For the first time, I felt it—that magical blend of comfort and excitement known only to those who are falling in love.
+No roses or grand plans yet—just two people, slowly discovering that the best love stories sometimes start in the simplest ways. This was the beginning of our love journey, written not in bold letters but in the small, meaningful moments that made everything feel new.
+`
+      },
+{
+title: "Chapter 8: Movie, Rose & a Stolen Surprise",
+        content: `Our first official movie date wasn’t like the ones you see in Bollywood films, no dramatic rain scenes or slow-motion walking. It was simple, sweet, and honestly, pretty funny. We picked a movie neither of us had seen, mostly because we couldn’t agree on what to watch—typical us, arguing like an old married couple.
+
+We laughed, we whispered silly comments, and I stole popcorn when he wasn’t looking (okay, maybe a little more than I should’ve). The highlight, though, wasn’t the movie. It was when he surprised me with a single rose. Yes, an actual rose. Not the fake plastic kind you find in a roadside shop, but a fresh, red one that smelled like something out of a romance novel.
+I was stunned. Literally.
+
+I probably looked like a deer caught in headlights, but I tried to play it cool—because, you know, cool is my middle name (or so I like to think). He tried to keep a poker face, but I caught the tiny grin he couldn’t hide. I pretended to be surprised for effect—gotta keep the rom-com vibe alive, right?
+
+That little rose said more than words ever could. It was his way of saying, “Hey, I’m serious about this.” My heart did the IPL final jump again, and I knew this was one of those moments I’d replay in my head a thousand times.
+Sometimes, love sneaks in with a rose and a movie ticket—and honestly, that’s all I needed.
+`
+      },
+{
+title: "Chapter 9: Drive Drama & Park Peace",
+        content: `One sunny afternoon, I was out drive with my dad—just . Suddenly, out of nowhere, he appeared. Yes, he appeared like some dramatic hero in an unexpected cameo. 
+
+It was just supposed to be a normal interview day. My dad, being the ever-sweet and supportive soul, offered to drop me off since my friend wasn’t coming that day. He even said, “I’ll wait here until you’re done and then take you back home.” Cute, right?
+
+And then—plot twist.
+HE was there. Just… standing. Like a statue. No warning, no message, nothing. Just casually chilling near the entrance like he belonged there, like he wasn’t throwing my whole plan into a spiral.
+
+My eyes widened. My soul left my body for a second.
+What in the rom-com chaos is this? My dad is literally sitting next to me and THIS guy chooses now to appear out of thin air?
+
+I looked at him. I looked at Dad. Back to him. Brain: PANIC MODE ACTIVATED.
+So, I did what any unprepared, semi-desperate girl in the middle of a love-and-lie triangle would do:
+“Oh! My friend just messaged—she’s coming! You can go, Appa. I’ll manage.”
+
+Bless my dad, he just smiled and drove off, unaware that the "friend" was currently standing 20 feet away, blinking like he’d accidentally wandered into the wrong sitcom.
+
+Once my dad left, I stomped over like, “Are you serious? You didn’t think to warn me?”
+He just shrugged with that goofy smile, saying, “I missed you.”
+
+Honestly, I should’ve been mad, but the absurdity of it all had me laughing.
+
+`
+      },
+{
+
+title: "Chapter 10: Storms, Support, and Soulmates",
+        content: `After he started working, things got a little complicated. Rumors spread like wildfire—someone said, “He’s already committed.” I was crushed. Tears flowed like the monsoon rains, and my heart felt like a soap opera scene: dramatic, confusing, and full of questions. How could this happen? Why didn’t he tell me?
+
+But here’s the twist—he stayed. Through my messiest moments, my irrational fights, and my stubborn silences, he stayed. We argued like it was an Olympic sport. Sometimes, I wondered if we were training for the “World Fighting Championship,” but beneath every fight was care, concern, and that stubborn love that refused to quit.
+
+Love, I learned, isn’t just about candlelight dinners and romantic walks. It’s about standing firm when life throws its worst. It’s about choosing each other again and again, even when you want to scream or storm out the door. We fought, yes—but every fight ended with a hug, a silly joke, or an “I’m sorry” whispered late at night.
+We weren’t perfect. Far from it. But we were real. And that’s what mattered.
+
+He became my rock, my laughter on gloomy days, and my partner in this crazy adventure called life.
+
+If love was a rollercoaster, we were hands in the air, screaming, laughing, and holding on tight—because together, we were unstoppable.
+`
+      },
+{
+
+title: "Final Chapter: 2.5 Years & a Forever to Go",
+        content: `After 2.5 years of memories, madness, and all the little moments that make life worth living, here I am, writing this with a heart so full it might just burst! From that first Snapchat request to where we stand today, it’s been nothing short of a beautiful, crazy ride.
+
+Thank you—for every call that lasted way too long, every hug that felt like home, every silly fight that ended with laughter, and all those goofy selfies that should probably never see the light of day (but I secretly love). You weren’t my first snap, but you’ve become my forever story.
+
+Happy Birthday, my love! 🎂 You’re that perfect mix of sweet and silly, calm and crazy. You don’t always listen to me (okay, almost never), and you definitely don’t admit when I’m right (which is always), but somehow, you still manage to win my heart every single day.
+
+Here’s to more accidental meetups, last-minute movie plans, surprise rose deliveries, and endless inside jokes. To more “What do you want to eat?” debates and “Stop stealing the covers!” battles. To more laughter, love, and ridiculous memories.
+
+Romantic mode: ON
+Comedy mode: Forever
+Love mode: Permanent
+
+So, now… shut up and accept my love already! Because with you, every moment feels like a perfect scene from our own little romantic comedy. And guess what? The best is yet to come. 
+`
+      },
+
+    ];
+
+    let currentChapter = 0;
+
+    function nextChapter() {
+      const titleEl = document.getElementById('chapter-title');
+      const contentEl = document.getElementById('chapter-content');
+      const btn = document.getElementById('next-btn');
+
+      // Fade out text
+      titleEl.style.opacity = 0;
+      contentEl.style.opacity = 0;
+
+      setTimeout(() => {
+        currentChapter++;
+        if (currentChapter >= chapters.length) {
+          btn.disabled = true;
+          btn.textContent = "End of Story";
+          return;
+        }
+
+        titleEl.textContent = chapters[currentChapter].title;
+        contentEl.textContent = chapters[currentChapter].content;
+
+        // Fade in text
+        titleEl.style.opacity = 1;
+        contentEl.style.opacity = 1;
+      }, 500);
+    }
+
+    // Optional: allow right arrow key to go next chapter
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && !document.getElementById('next-btn').disabled) {
+        nextChapter();
+      }
+    });
+
+    // Initialize opacity for fade effect
+    window.onload = () => {
+      document.getElementById('chapter-title').style.transition = "opacity 0.5s ease";
+      document.getElementById('chapter-content').style.transition = "opacity 0.5s ease";
+    };
+  </script>

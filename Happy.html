@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Journey</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #fef6fb, #e0f2f1);
+      font-family: 'Quicksand', sans-serif;
+      color: #4b4453;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      text-align: center;
+      font-size: 3.5rem;
+      color: #d291bc;
+      margin-top: 2rem;
+    }
+
+    .duration {
+      font-size: 1.2rem;
+      text-align: center;
+      margin-top: 1rem;
+      color: #6a4c93;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 2rem;
+      gap: 2rem;
+    }
+
+    .photo-card {
+      width: 200px;
+      height: 250px;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transform: rotate(var(--angle));
+      transition: transform 0.4s ease;
+    }
+
+    .photo-card:hover {
+      transform: scale(1.05) rotate(0deg);
+      z-index: 2;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .journey-btn {
+      display: block;
+      margin: 3rem auto;
+      padding: 1rem 2.5rem;
+      background: linear-gradient(to right, #fbcfe8, #c4b5fd);
+      border: none;
+      border-radius: 30px;
+      color: #333;
+      font-weight: bold;
+      font-size: 1.2rem;
+      box-shadow: 0 0 20px rgba(251, 207, 232, 0.4);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .journey-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 30px rgba(251, 207, 232, 0.6);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Happy Birthday, My Universe 💫</h1>
+  <p class="duration">
+    It’s been <strong>2 years, 7 months, and 12 days</strong>...<br>
+    That’s <strong>956 days, 22,944 hours, 1,376,640 minutes</strong>, and <strong>82,598,400 unforgettable seconds</strong> with you 💖
+  </p>
+
+  <div class="gallery">
+    <div class="photo-card" style="--angle: -5deg">
+      <img src="one.jpg" alt="Memory 1">
+    </div>
+    <div class="photo-card" style="--angle: 4deg">
+      <img src="two.jpg" alt="Memory 2">
+    </div>
+    <div class="photo-card" style="--angle: -3deg">
+      <img src="three.jpg" alt="Memory 3">
+    </div>
+    <div class="photo-card" style="--angle: 6deg">
+      <img src="four.jpg" alt="Memory 4">
+    </div>
+  </div>
+
+  <button class="journey-btn" onclick="window.location.href='cards.html'">Start the Journey 💖</button>
+</body>
+</html>

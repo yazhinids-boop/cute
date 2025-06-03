@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pastel Birthday Wish</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      background: linear-gradient(135deg, #f6d1c1, #c5d8d1);
+      font-family: 'Quicksand', sans-serif;
+      color: #555;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Container */
+    .wish-container {
+      max-width: 600px;
+      background: #fff9f9cc;
+      padding: 40px 50px;
+      border-radius: 30px;
+      box-shadow: 0 8px 30px rgba(210, 180, 180, 0.3);
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4rem;
+      color: #b27d82;
+      text-shadow: 0 0 10px #eec5c5;
+      margin-bottom: 25px;
+      animation: pastelGlow 4s ease-in-out infinite;
+    }
+
+    @keyframes pastelGlow {
+      0%, 100% {
+        text-shadow: 0 0 20px #b27d82, 0 0 40px #eec5c5;
+        color: #b27d82;
+      }
+      50% {
+        text-shadow: 0 0 30px #f7d4d4, 0 0 60px #f7d4d4;
+        color: #d48a92;
+      }
+    }
+
+    p {
+      font-size: 1.3rem;
+      line-height: 1.7;
+      margin-bottom: 40px;
+      color: #8e6e72;
+    }
+
+    /* Shooting star */
+    .shooting-star {
+      position: fixed;
+      top: 15%;
+      left: -120px;
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, #f6d1c1, transparent);
+      border-radius: 50%;
+      filter: drop-shadow(0 0 8px #f6d1c1aa);
+      animation: shootingStar 5s linear forwards;
+      animation-delay: 3s;
+      opacity: 0;
+      z-index: 5;
+    }
+
+    @keyframes shootingStar {
+      0% {
+        transform: translateX(0) translateY(0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(110vw) translateY(80vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      bottom: -50px;
+      font-size: 2.3rem;
+      color: #f7a8a8;
+      animation: floatUp 6s linear infinite;
+      user-select: none;
+    }
+
+    .heart:nth-child(1) { left: 15%; animation-delay: 1.2s; }
+    .heart:nth-child(2) { left: 40%; animation-delay: 3.4s; }
+    .heart:nth-child(3) { left: 65%; animation-delay: 4.8s; }
+    .heart:nth-child(4) { left: 85%; animation-delay: 2.7s; }
+
+    @keyframes floatUp {
+      0% {
+        bottom: -50px;
+        opacity: 0;
+        transform: scale(0.85);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+      100% {
+        bottom: 120vh;
+        opacity: 0;
+        transform: scale(1);
+      }
+    }
+
+    /* Confetti container */
+    #confetti {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      overflow: visible;
+      top: 0; left: 0;
+      z-index: 50;
+    }
+
+    /* Popup overlay */
+    .popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(255 240 240 / 0.95);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 100;
+    }
+
+    .popup.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* Popup content */
+    .popup-content {
+      background: #ffdce0;
+      border-radius: 30px;
+      padding: 35px 50px;
+      max-width: 800px;
+      box-shadow: 0 0 45px #eeb3ba;
+      text-align: center;
+      color: #6b3a3f;
+      font-family: 'Great Vibes', cursive;
+      animation: popupZoom 0.4s ease forwards;
+    }
+
+    @keyframes popupZoom {
+      from {
+        transform: scale(0.7);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .popup-content h2 {
+      font-size: 3.5rem;
+      margin-bottom: 15px;
+    }
+
+    .popup-content img {
+      max-width: 140px;
+      border-radius: 20px;
+      margin: 18px 0;
+      box-shadow: 0 0 25px #ffc1c8;
+    }
+
+    .popup-content p {
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+      font-weight: 600;
+    }
+
+    .btn {
+      background: #f7a8a8;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 20px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 5px 15px #f28787cc;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #f26464;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Shooting star -->
+  <div class="shooting-star"></div>
+
+  <!-- Floating hearts with aria-label for accessibility -->
+  <div class="heart" aria-label="Sparkling heart">💖</div>
+  <div class="heart" aria-label="Sparkling heart">💗</div>
+  <div class="heart" aria-label="Sparkling heart">💘</div>
+  <div class="heart" aria-label="Sparkling heart">💝</div>
+
+  <!-- Main wish container -->
+  <div class="wish-container">
+    <h1>To the Moon & Back</h1>
+    <p>
+      Under the gentle pastel sky, your light warms my heart.<br />
+      Your smile is the softest glow, a sweet melody that lingers.<br />
+      Tonight, with stars above, I send my love:<br />
+      You’re my forever, my sweetest dream, my endless joy. 💕
+    </p>
+  </div>
+
+  <!-- Confetti container -->
+  <canvas id="confetti"></canvas>
+
+  <!-- Surprise Popup -->
+  <div class="popup" id="popup" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+    <div class="popup-content">
+      <h2 id="popup-title">Happy Birthday, Sweetheart! 🎉</h2>
+      <img src="thirteen.jpg" alt="Birthday Cake" />
+      <p>
+        You are my pastel rainbow after every storm.<br />
+        May your day be filled with joy, love, and sweet memories.
+      </p>
+      <button class="btn" onclick="closePopup()">Forever & Always</button>
+    </div>
+  </div>
+
+  <script>
+    // Show popup after 7 seconds
+    setTimeout(() => {
+      document.getElementById('popup').classList.add('active');
+    }, 7000);
+
+    // Close popup
+    function closePopup() {
+      document.getElementById('popup').classList.remove('active');
+    }
+
+    // Confetti animation code
+    (() => {
+      const confetti = document.getElementById('confetti');
+      const ctx = confetti.getContext('2d');
+      let width = window.innerWidth;
+      let height = window.innerHeight;
+      confetti.width = width;
+      confetti.height = height;
+
+      const confettiCount = 150;
+      const confettiColors = ['#f6d1c1', '#c5d8d1', '#f7a8a8', '#b27d82', '#eec5c5'];
+
+      const confettis = [];
+
+      class Confetto {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height - height;
+          this.size = (Math.random() * 7) + 5;
+          this.color = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+          this.speed = (Math.random() * 3) + 1;
+          this.angle = Math.random() * 2 * Math.PI;
+          this.spin = (Math.random() * 0.1) + 0.01;
+          this.opacity = Math.random() * 0.7 + 0.3;
+        }
+
+        update() {
+          this.y += this.speed;
+          this.x += Math.sin(this.angle);
+          this.angle += this.spin;
+
+          if (this.y > height) {
+            this.y = -this.size;
+            this.x = Math.random() * width;
+            this.opacity = Math.random() * 0.7 + 0.3;
+          }
+        }
+
+        draw() {
+          ctx.save();
+          ctx.fillStyle = this.color;
+          ctx.globalAlpha = this.opacity;
+          ctx.translate(this.x, this.y);
+          ctx.rotate(this.angle);
+          ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size * 0.4);
+          ctx.restore();
+        }
+      }
+
+      function createConfetti() {
+        for (let i = 0; i < confettiCount; i++) {
+          confettis.push(new Confetto());
+        }
+      }
+
+      function animateConfetti() {
+        ctx.clearRect(0, 0, width, height);
+        confettis.forEach(c => {
+          c.update();
+          c.draw();
+        });
+        requestAnimationFrame(animateConfetti);
+      }
+
+      window.addEventListener('resize', () => {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        confetti.width = width;
+        confetti.height = height;
+      });
+
+      createConfetti();
+      animateConfetti();
+    })();
+  </script>
+
+</body>
+</html>

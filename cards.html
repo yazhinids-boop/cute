@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Birthday Surprise for You</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 3rem 2rem 4rem;
+      color: #3a5068;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.8rem;
+      margin-bottom: 0.2rem;
+      color: #1e88e5;
+      text-shadow:
+        2px 2px 6px rgba(30, 136, 229, 0.3),
+        0 0 10px rgba(30, 136, 229, 0.25);
+    }
+
+    h2.subheading {
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 600;
+      font-size: 1.4rem;
+      margin-top: 0;
+      margin-bottom: 2.8rem;
+      color: #64b5f6;
+      letter-spacing: 0.03em;
+    }
+
+    .container {
+      display: flex;
+      gap: 2.5rem;
+      max-width: 1100px;
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #ffffff, #e3f2fd);
+      border-radius: 24px;
+      box-shadow:
+        4px 4px 10px rgba(66, 165, 245, 0.15),
+        -4px -4px 15px rgba(255, 255, 255, 0.7);
+      padding: 3rem 2.5rem;
+      flex: 1 1 320px;
+      max-width: 350px;
+      cursor: pointer;
+      transition:
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      user-select: none;
+      text-align: center;
+      border: 1px solid #90caf9;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -60%;
+      left: -60%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, #90caf944, transparent 70%);
+      opacity: 0.2;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    .card:hover::before {
+      opacity: 0.4;
+    }
+
+    .card:hover {
+      transform: translateY(-12px) scale(1.05);
+      box-shadow:
+        8px 8px 30px rgba(66, 165, 245, 0.3),
+        -6px -6px 20px rgba(255, 255, 255, 0.85);
+      border-color: #42a5f5;
+      z-index: 2;
+    }
+
+    .card h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.8rem;
+      margin: 0 0 1rem 0;
+      color: #1976d2;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card p {
+      font-size: 1.15rem;
+      color: #455a64;
+      margin: 0;
+      line-height: 1.5;
+      position: relative;
+      z-index: 1;
+      user-select: text;
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding: 1rem 0;
+      font-size: 0.95rem;
+      color: #1976d2;
+      letter-spacing: 0.04em;
+      font-weight: 500;
+      user-select: none;
+    }
+
+    /* Accessibility: keyboard focus */
+    .card:focus-visible {
+      outline: 3px solid #64b5f6;
+      outline-offset: 4px;
+      box-shadow:
+        0 0 8px 2px #64b5f6;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Happy Birthday, [Name]! 🎉</h1>
+  <h2 class="subheading">Here’s a little gift — memories and moments we share 💖</h2>
+
+  <div class="container">
+    <div class="card" onclick="window.location.href='journey.html'" role="button" tabindex="0" onkeypress="if(event.key==='Enter'){window.location.href='journey.html'}">
+      <h2>Special Moments 💖</h2>
+      <p>Take a look at the memories that led to this unforgettable day.</p>
+    </div>
+
+    <div class="card" onclick="window.location.href='story.html'" role="button" tabindex="0" onkeypress="if(event.key==='Enter'){window.location.href='ourstory.html'}">
+      <h2>Our Story 📖</h2>
+      <p>Discover the journey of us through words and cherished memories.</p>
+    </div>
+
+    <div class="card" onclick="window.location.href='wish.html'" role="button" tabindex="0" onkeypress="if(event.key==='Enter'){window.location.href='online.html'}">
+      <h2>Virtual Celebration 💻</h2>
+      <p>Even miles apart, let's celebrate online with laughter, games, and love.</p>
+    </div>
+  </div>
+
+  <footer>Made with ❤️ just for you.</footer>
+
+</body>
+</html>
